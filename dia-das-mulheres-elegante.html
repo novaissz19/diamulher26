@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dia Internacional da Mulher</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --creme:    #faf6f1;
+      --vinho:    #7b2d42;
+      --rose:     #c4788a;
+      --dourado:  #c9a96e;
+      --cinza:    #6b6b6b;
+      --escuro:   #1e1218;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--creme);
+      color: var(--escuro);
+      overflow-x: hidden;
+    }
+
+    /* ── LINHA DECORATIVA ── */
+    .linha { width: 60px; height: 1px; background: var(--dourado); margin: 0 auto; }
+    .linha-left { margin: 0; }
+
+    /* ══════════ HERO ══════════ */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-esquerda {
+      background: var(--vinho);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 60px;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-esquerda::after {
+      content: '';
+      position: absolute;
+      right: -60px;
+      top: 0; bottom: 0;
+      width: 120px;
+      background: var(--vinho);
+      clip-path: polygon(0 0, 0 100%, 100% 50%);
+      z-index: 2;
+    }
+
+    .hero-data {
+      font-family: 'Jost', sans-serif;
+      font-weight: 300;
+      font-size: 0.78rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 32px;
+    }
+
+    .hero-titulo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 5vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: #fff;
+      margin-bottom: 32px;
+    }
+    .hero-titulo em {
+      font-style: italic;
+      color: var(--dourado);
+    }
+
+    .hero-linha { width: 50px; height: 1px; background: var(--dourado); margin-bottom: 28px; }
+
+    .hero-subtexto {
+      font-weight: 300;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: rgba(255,255,255,0.72);
+      max-width: 380px;
+    }
+
+    .hero-direita {
+      background: #2a0d1a;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-direita-inner {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 70% 40%, rgba(196,120,138,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse at 30% 80%, rgba(123,45,66,0.3) 0%, transparent 50%);
+    }
+    .hero-ornamento {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 320px;
+      height: 320px;
+      border: 1px solid rgba(201,169,110,0.25);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-ornamento::before {
+      content: '';
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      border: 1px solid rgba(201,169,110,0.15);
+      border-radius: 50%;
+    }
+    .hero-ornamento::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      border: 1px solid rgba(201,169,110,0.1);
+      border-radius: 50%;
+    }
+    .hero-numero {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 9rem;
+      font-weight: 300;
+      color: rgba(201,169,110,0.22);
+      line-height: 1;
+      text-align: center;
+      pointer-events: none;
+      user-select: none;
+      position: absolute;
+      bottom: 40px;
+      right: 40px;
+    }
+    .hero-simbolo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      color: rgba(201,169,110,0.6);
+      font-style: italic;
+    }
+
+    /* ══════════ INTRO ══════════ */
+    .intro {
+      padding: 110px 60px;
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+    .intro-label {
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 28px;
+      display: block;
+    }
+    .intro-esquerda h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+      font-weight: 300;
+      line-height: 1.2;
+      color: var(--vinho);
+    }
+    .intro-esquerda h2 em { font-style: italic; }
+
+    .intro-direita p {
+      font-weight: 300;
+      font-size: 1.05rem;
+      line-height: 2;
+      color: var(--cinza);
+      margin-bottom: 22px;
+    }
+    .intro-direita p:last-child { margin-bottom: 0; }
+    .intro-direita strong { color: var(--vinho); font-weight: 500; }
+
+    /* ══════════ MULHERES ══════════ */
+    .mulheres {
+      background: var(--escuro);
+      padding: 110px 60px;
+    }
+    .mulheres-header {
+      max-width: 1100px;
+      margin: 0 auto 70px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 40px;
+    }
+    .mulheres-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+    }
+    .mulheres-header h2 em { color: var(--dourado); font-style: italic; }
+    .mulheres-header p {
+      font-weight: 300;
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.45);
+      max-width: 300px;
+      line-height: 1.8;
+      flex-shrink: 0;
+    }
+
+    .mulheres-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .mulher-card {
+      background: #2a1520;
+      padding: 50px 38px;
+      position: relative;
+      overflow: hidden;
+      transition: background 0.4s;
+    }
+    .mulher-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--dourado), transparent);
+      opacity: 0;
+      transition: opacity 0.4s;
+    }
+    .mulher-card:hover { background: #331825; }
+    .mulher-card:hover::before { opacity: 1; }
+
+    .mulher-area {
+      font-size: 0.72rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      margin-bottom: 20px;
+    }
+    .mulher-nome {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.9rem;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+    .mulher-linha { width: 30px; height: 1px; background: var(--rose); margin-bottom: 20px; transition: width 0.4s; }
+    .mulher-card:hover .mulher-linha { width: 50px; }
+    .mulher-desc {
+      font-weight: 300;
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.85;
+    }
+    .mulher-num {
+      position: absolute;
+      bottom: 24px;
+      right: 28px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem;
+      font-weight: 300;
+      color: rgba(201,169,110,0.08);
+      line-height: 1;
+    }
+
+    /* ══════════ FRASES ══════════ */
+    .frases {
+      padding: 110px 60px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .frases-header {
+      text-align: center;
+      margin-bottom: 70px;
+    }
+    .frases-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3vw, 3rem);
+      font-weight: 300;
+      color: var(--vinho);
+      margin: 16px 0;
+    }
+
+    .frase-item {
+      padding: 48px 0;
+      border-bottom: 1px solid rgba(123,45,66,0.12);
+      display: grid;
+      grid-template-columns: 30px 1fr;
+      gap: 32px;
+      align-items: start;
+      transition: padding-left 0.3s;
+    }
+    .frase-item:first-of-type { border-top: 1px solid rgba(123,45,66,0.12); }
+    .frase-item:hover { padding-left: 10px; }
+
+    .frase-aspas {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      line-height: 1;
+      color: var(--dourado);
+      font-style: italic;
+      margin-top: -8px;
+    }
+    .frase-texto {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.2rem, 2.2vw, 1.6rem);
+      font-style: italic;
+      font-weight: 300;
+      color: var(--escuro);
+      line-height: 1.6;
+      margin-bottom: 16px;
+    }
+    .frase-autora {
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: var(--rose);
+      font-weight: 400;
+    }
+
+    /* ══════════ FATOS ══════════ */
+    .fatos {
+      background: var(--vinho);
+      padding: 110px 60px;
+    }
+    .fatos-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .fatos-header {
+      margin-bottom: 70px;
+    }
+    .fatos-header span {
+      font-size: 0.75rem;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--dourado);
+      display: block;
+      margin-bottom: 16px;
+    }
+    .fatos-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.2;
+    }
+
+    .fatos-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .fato-item {
+      background: var(--vinho);
+      padding: 48px 36px;
+      transition: background 0.3s;
+    }
+    .fato-item:hover { background: #6a2538; }
+    .fato-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.8rem;
+      font-weight: 300;
+      color: var(--dourado);
+      line-height: 1;
+      margin-bottom: 16px;
+      display: block;
+    }
+    .fato-linha { width: 24px; height: 1px; background: rgba(255,255,255,0.25); margin-bottom: 16px; }
+    .fato-texto {
+      font-size: 0.88rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.8;
+    }
+
+    /* ══════════ ENCERRAMENTO ══════════ */
+    .encerramento {
+      padding: 140px 60px;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .encerramento .ornamento-linha {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+    .ornamento-linha span { width: 80px; height: 1px; background: var(--dourado); display: block; }
+    .ornamento-linha em {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      color: var(--dourado);
+    }
+    .encerramento h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      font-weight: 300;
+      color: var(--vinho);
+      line-height: 1.1;
+      margin-bottom: 30px;
+    }
+    .encerramento h2 em { font-style: italic; color: var(--rose); }
+    .encerramento p {
+      font-weight: 300;
+      font-size: 1.05rem;
+      color: var(--cinza);
+      line-height: 2;
+    }
+
+    /* ══════════ FOOTER ══════════ */
+    footer {
+      background: var(--escuro);
+      padding: 48px 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    footer .logo-footer {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.6);
+    }
+    footer .logo-footer em { color: var(--dourado); font-style: italic; }
+    footer .footer-info {
+      font-size: 0.78rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      text-align: right;
+    }
+
+    /* ══════════ ANIMAÇÕES DE ENTRADA ══════════ */
+    .revelar {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .revelar.visivel {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════ RESPONSIVO ══════════ */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-esquerda { padding: 80px 36px; min-height: 70vh; }
+      .hero-esquerda::after { display: none; }
+      .hero-direita { min-height: 40vh; }
+      .intro { grid-template-columns: 1fr; padding: 70px 36px; gap: 40px; }
+      .mulheres { padding: 70px 36px; }
+      .mulheres-header { flex-direction: column; align-items: flex-start; }
+      .mulheres-grid { grid-template-columns: 1fr; }
+      .fatos { padding: 70px 36px; }
+      .fatos-grid { grid-template-columns: 1fr 1fr; }
+      .frases { padding: 70px 36px; }
+      .encerramento { padding: 90px 36px; }
+      footer { flex-direction: column; text-align: center; padding: 40px 36px; }
+      footer .footer-info { text-align: center; }
+    }
+    @media (max-width: 560px) {
+      .fatos-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO ══ -->
+  <section class="hero">
+    <div class="hero-esquerda">
+      <p class="hero-data">8 de março &nbsp;·&nbsp; Todo ano</p>
+      <h1 class="hero-titulo">
+        Dia Internacional<br>da <em>Mulher</em>
+      </h1>
+      <div class="hero-linha"></div>
+      <p class="hero-subtexto">
+        Uma data que não é apenas uma celebração — é um lembrete da luta contínua por igualdade, respeito e dignidade para todas as mulheres do mundo.
+      </p>
+    </div>
+    <div class="hero-direita">
+      <div class="hero-direita-inner"></div>
+      <div class="hero-ornamento">
+        <span class="hero-simbolo">♀</span>
+      </div>
+      <div class="hero-numero">8</div>
+    </div>
+  </section>
+
+  <!-- ══ INTRO ══ -->
+  <section class="intro revelar">
+    <div class="intro-esquerda">
+      <span class="intro-label">A origem</span>
+      <h2>Por que<br>celebramos<br><em>esta data?</em></h2>
+    </div>
+    <div class="intro-direita">
+      <p>
+        O Dia Internacional da Mulher nasceu de décadas de resistência. Em 1908, milhares de mulheres marcharam em Nova York por melhores condições de trabalho. Em 1975, a ONU oficializou o <strong>8 de março</strong> como data simbólica mundial.
+      </p>
+      <p>
+        Mas além da história, esta data nos convida a refletir sobre o presente: sobre as conquistas que já alcançamos e sobre os caminhos que ainda precisamos percorrer juntos — homens e mulheres — em direção a uma sociedade mais justa.
+      </p>
+      <p>
+        Celebrar a mulher é reconhecer que sua presença transforma o mundo em todos os campos: na ciência, na arte, na política, na família e na cultura.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══ MULHERES INSPIRADORAS ══ -->
+  <section class="mulheres">
+    <div class="mulheres-header revelar">
+      <h2>Mulheres que<br><em>mudaram a história</em></h2>
+      <p>Seis nomes que provaram que não há limite para o que uma mulher pode alcançar.</p>
+    </div>
+    <div class="mulheres-grid">
+      <div class="mulher-card revelar">
+        <p class="mulher-area">Ciência</p>
+        <h3 class="mulher-nome">Marie Curie</h3>
+        <div class="mulher-linha"></div>
+        <p class="mulher-desc">Primeira pessoa a ganhar dois Prêmios Nobel, em áreas diferentes. Abriu as portas da ciência para gerações de mulheres.</p>
+        <span class="mulher-num">01</span>
+      </div>
+      <div class="mulher-card revelar">
+        <p class="mulher-area">Direitos Civis</p>
+        <h3 class="mulher-nome">Rosa Parks</h3>
+        <div class="mulher-linha"></div>
+        <p class="mulher-desc">Seu ato de recusa simples e corajoso em 1955 acendeu um movimento que mudou para sempre a história dos direitos humanos.</p>
+        <span class="mulher-num">02</span>
+      </div>
+      <div class="mulher-card revelar">
+        <p class="mulher-area">Educação</p>
+        <h3 class="mulher-nome">Malala Yousafzai</h3>
+        <div class="mulher-linha"></div>
+        <p class="mulher-desc">Sobreviveu a um atentado para continuar defendendo o direito das meninas à educação. Tornou-se a mais jovem Nobel da Paz.</p>
+        <span class="mulher-num">03</span>
+      </div>
+      <div class="mulher-card revelar">
+        <p class="mulher-area">Arte</p>
+        <h3 class="mulher-nome">Frida Kahlo</h3>
+        <div class="mulher-linha"></div>
+        <p class="mulher-desc">Transformou dor em arte e identidade em bandeira. Um ícone eterno da força e da autenticidade feminina.</p>
+        <span class="mulher-num">04</span>
+      </div>
+      <div class="mulher-card revelar">
+        <p class="mulher-area">Tecnologia</p>
+        <h3 class="mulher-nome">Ada Lovelace</h3>
+        <div class="mulher-linha"></div>
+        <p class="mulher-desc">Considerada a primeira programadora da história, no século XIX. Sua visão antecipou o que viria a ser a computação moderna.</p>
+        <span class="mulher-num">05</span>
+      </div>
+      <div class="mulher-card revelar">
+        <p class="mulher-area">Política · Brasil</p>
+        <h3 class="mulher-nome">Bertha Lutz</h3>
+        <div class="mulher-linha"></div>
+        <p class="mulher-desc">Lutou incansavelmente pelo sufrágio feminino no Brasil. Por ela — e por tantas outras — as mulheres brasileiras votam desde 1932.</p>
+        <span class="mulher-num">06</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FRASES ══ -->
+  <section class="frases">
+    <div class="frases-header revelar">
+      <div class="linha"></div>
+      <h2>Palavras que<br>ficaram</h2>
+    </div>
+
+    <div class="frase-item revelar">
+      <span class="frase-aspas">"</span>
+      <div>
+        <p class="frase-texto">Uma mulher com voz é, por definição, uma mulher forte.</p>
+        <span class="frase-autora">Melinda Gates</span>
+      </div>
+    </div>
+
+    <div class="frase-item revelar">
+      <span class="frase-aspas">"</span>
+      <div>
+        <p class="frase-texto">Ninguém pode fazer você se sentir inferior sem o seu consentimento.</p>
+        <span class="frase-autora">Eleanor Roosevelt</span>
+      </div>
+    </div>
+
+    <div class="frase-item revelar">
+      <span class="frase-aspas">"</span>
+      <div>
+        <p class="frase-texto">Não sou livre enquanto qualquer mulher não for livre, mesmo que suas correntes sejam diferentes das minhas.</p>
+        <span class="frase-autora">Audre Lorde</span>
+      </div>
+    </div>
+
+    <div class="frase-item revelar">
+      <span class="frase-aspas">"</span>
+      <div>
+        <p class="frase-texto">A questão não é quem vai me deixar — é quem vai me deter.</p>
+        <span class="frase-autora">Ayn Rand</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FATOS ══ -->
+  <section class="fatos">
+    <div class="fatos-inner">
+      <div class="fatos-header revelar">
+        <span>Em números</span>
+        <h2>O peso de uma data</h2>
+      </div>
+      <div class="fatos-grid">
+        <div class="fato-item revelar">
+          <span class="fato-num">1908</span>
+          <div class="fato-linha"></div>
+          <p class="fato-texto">Ano da grande marcha feminina em Nova York, marco do movimento pelos direitos das trabalhadoras.</p>
+        </div>
+        <div class="fato-item revelar">
+          <span class="fato-num">1975</span>
+          <div class="fato-linha"></div>
+          <p class="fato-texto">A ONU oficializa o 8 de março. A data passa a ser reconhecida em escala global.</p>
+        </div>
+        <div class="fato-item revelar">
+          <span class="fato-num">+100</span>
+          <div class="fato-linha"></div>
+          <p class="fato-texto">Países que celebram o Dia Internacional da Mulher com eventos, marchas e reflexões públicas.</p>
+        </div>
+        <div class="fato-item revelar">
+          <span class="fato-num">1932</span>
+          <div class="fato-linha"></div>
+          <p class="fato-texto">Ano em que as mulheres brasileiras conquistaram o direito ao voto — uma vitória de décadas de luta.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ENCERRAMENTO ══ -->
+  <section class="encerramento revelar">
+    <div class="ornamento-linha">
+      <span></span>
+      <em>♀</em>
+      <span></span>
+    </div>
+    <h2>Feliz Dia,<br><em>mulher.</em></h2>
+    <p>
+      Que esta data seja mais do que uma celebração — que seja um convite para refletir, respeitar e agir. Cada mulher carrega uma história de força que merece ser honrada, não apenas hoje, mas todos os dias.
+    </p>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="logo-footer">Dia Internacional da <em>Mulher</em></div>
+    <div class="footer-info">
+      Trabalho Escolar &nbsp;·&nbsp; 8 de Março &nbsp;·&nbsp; 2025
+    </div>
+  </footer>
+
+  <script>
+    // Animação de entrada ao rolar
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visivel'), i * 80);
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.revelar').forEach(el => observer.observe(el));
+  </script>
+</body>
+</html>
